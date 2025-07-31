@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import '../../core/constants/app_assets.dart';
 
 class MainScaffold extends StatelessWidget {
   final Widget child;
@@ -21,25 +23,75 @@ class MainScaffold extends StatelessWidget {
         selectedItemColor: Theme.of(context).colorScheme.primary,
         unselectedItemColor: Colors.grey,
         onTap: (index) => _onItemTapped(context, index),
-        items: const [
+        items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.dashboard),
+            icon: SvgPicture.asset(
+              AppAssets.dashboardIcon,
+              width: 24,
+              height: 24,
+              colorFilter: ColorFilter.mode(
+                selectedIndex == 0
+                    ? Theme.of(context).colorScheme.primary
+                    : Colors.grey,
+                BlendMode.srcIn,
+              ),
+            ),
             label: 'Dashboard',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.home_work),
+            icon: SvgPicture.asset(
+              AppAssets.propertiesIcon,
+              width: 24,
+              height: 24,
+              colorFilter: ColorFilter.mode(
+                selectedIndex == 1
+                    ? Theme.of(context).colorScheme.primary
+                    : Colors.grey,
+                BlendMode.srcIn,
+              ),
+            ),
             label: 'Properties',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.people),
+            icon: SvgPicture.asset(
+              AppAssets.tenantsIcon,
+              width: 24,
+              height: 24,
+              colorFilter: ColorFilter.mode(
+                selectedIndex == 2
+                    ? Theme.of(context).colorScheme.primary
+                    : Colors.grey,
+                BlendMode.srcIn,
+              ),
+            ),
             label: 'Tenants',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.account_balance_wallet),
+            icon: SvgPicture.asset(
+              AppAssets.financesIcon,
+              width: 24,
+              height: 24,
+              colorFilter: ColorFilter.mode(
+                selectedIndex == 3
+                    ? Theme.of(context).colorScheme.primary
+                    : Colors.grey,
+                BlendMode.srcIn,
+              ),
+            ),
             label: 'Finances',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
+            icon: SvgPicture.asset(
+              AppAssets.settingsIcon,
+              width: 24,
+              height: 24,
+              colorFilter: ColorFilter.mode(
+                selectedIndex == 4
+                    ? Theme.of(context).colorScheme.primary
+                    : Colors.grey,
+                BlendMode.srcIn,
+              ),
+            ),
             label: 'Settings',
           ),
         ],

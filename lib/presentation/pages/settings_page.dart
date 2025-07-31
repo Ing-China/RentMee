@@ -33,81 +33,69 @@ class SettingsPage extends StatelessWidget {
                   const SizedBox(height: 4),
                   Text(
                     'Property Manager',
-                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                      color: Colors.grey[600],
-                    ),
+                    style: Theme.of(
+                      context,
+                    ).textTheme.bodyMedium?.copyWith(color: Colors.grey[600]),
                   ),
                 ],
               ),
             ),
           ),
           const SizedBox(height: AppConstants.defaultPadding),
-          _buildSettingsSection(
-            'Account',
-            [
-              _buildSettingsTile(
-                icon: Icons.person_outline,
-                title: 'Profile Settings',
-                onTap: () {},
-              ),
-              _buildSettingsTile(
-                icon: Icons.security,
-                title: 'Security',
-                onTap: () {},
-              ),
-              _buildSettingsTile(
-                icon: Icons.notifications_outlined,
-                title: 'Notifications',
-                onTap: () {},
-              ),
-            ],
-          ),
+          _buildSettingsSection('Account', [
+            _buildSettingsTile(
+              icon: Icons.person_outline,
+              title: 'Profile Settings',
+              onTap: () {},
+            ),
+            _buildSettingsTile(
+              icon: Icons.security,
+              title: 'Security',
+              onTap: () {},
+            ),
+            _buildSettingsTile(
+              icon: Icons.notifications_outlined,
+              title: 'Notifications',
+              onTap: () {},
+            ),
+          ]),
           const SizedBox(height: AppConstants.defaultPadding),
-          _buildSettingsSection(
-            'App Settings',
-            [
-              _buildSettingsTile(
-                icon: Icons.dark_mode_outlined,
-                title: 'Dark Mode',
-                trailing: Switch(
-                  value: false,
-                  onChanged: (value) {},
-                ),
-              ),
-              _buildSettingsTile(
-                icon: Icons.language,
-                title: 'Language',
-                subtitle: 'English',
-                onTap: () {},
-              ),
-              _buildSettingsTile(
-                icon: Icons.backup_outlined,
-                title: 'Backup & Sync',
-                onTap: () {},
-              ),
-            ],
-          ),
+          _buildSettingsSection('App Settings', [
+            _buildSettingsTile(
+              icon: Icons.dark_mode_outlined,
+              title: 'Dark Mode',
+              trailing: Switch(value: false, onChanged: (value) {}),
+            ),
+            _buildSettingsTile(
+              icon: Icons.language,
+              title: 'Language',
+              subtitle: 'English',
+              onTap: () {},
+            ),
+            _buildSettingsTile(
+              icon: Icons.backup_outlined,
+              title: 'Backup & Sync',
+              onTap: () {},
+            ),
+          ]),
           const SizedBox(height: AppConstants.defaultPadding),
-          _buildSettingsSection(
-            'Support',
-            [
-              _buildSettingsTile(
-                icon: Icons.help_outline,
-                title: 'Help & Support',
-                onTap: () {},
-              ),
-              _buildSettingsTile(
-                icon: Icons.feedback_outlined,
-                title: 'Send Feedback',
-                onTap: () {},
-              ),
-              _buildSettingsTile(
-                icon: Icons.info_outline,
-                title: 'About',
-                onTap: () {},
-              ),
-            ],
-          ),
+          _buildSettingsSection('Support', [
+            _buildSettingsTile(
+              icon: Icons.help_outline,
+              title: 'Help & Support',
+              onTap: () {},
+            ),
+            _buildSettingsTile(
+              icon: Icons.feedback_outlined,
+              title: 'Send Feedback',
+              onTap: () {},
+            ),
+            _buildSettingsTile(
+              icon: Icons.info_outline,
+              title: 'About',
+              onTap: () {},
+            ),
+          ]),
           const SizedBox(height: AppConstants.defaultPadding),
           _buildSettingsTile(
             icon: Icons.logout,
@@ -135,11 +123,7 @@ class SettingsPage extends StatelessWidget {
             ),
           ),
         ),
-        Card(
-          child: Column(
-            children: children,
-          ),
-        ),
+        Card(child: Column(children: children)),
       ],
     );
   }
@@ -154,10 +138,7 @@ class SettingsPage extends StatelessWidget {
   }) {
     return ListTile(
       leading: Icon(icon, color: titleColor),
-      title: Text(
-        title,
-        style: TextStyle(color: titleColor),
-      ),
+      title: Text(title, style: TextStyle(color: titleColor)),
       subtitle: subtitle != null ? Text(subtitle) : null,
       trailing: trailing ?? const Icon(Icons.arrow_forward_ios, size: 16),
       onTap: onTap,
