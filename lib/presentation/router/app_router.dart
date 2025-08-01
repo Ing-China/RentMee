@@ -4,6 +4,7 @@ import '../pages/properties_page.dart';
 import '../pages/tenants_page.dart';
 import '../pages/finances_page.dart';
 import '../pages/settings_page.dart';
+import '../pages/language_page.dart';
 import '../widgets/main_scaffold.dart';
 import '../../core/constants/app_constants.dart';
 
@@ -65,6 +66,11 @@ final GoRouter appRouter = GoRouter(
           builder: (context, state) => const SettingsPage(),
         ),
       ],
+    ),
+    GoRoute(
+      path: '/language',
+      name: 'language',
+      builder: (context, state) => const LanguagePage(),
     ),
   ],
 );

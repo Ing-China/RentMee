@@ -1,0 +1,72 @@
+{
+  "appTitle": "RentMee",
+  "@appTitle": {
+    "description": "The title of the application"
+  },
+  "dashboard": "Dashboard",
+  "@dashboard": {
+    "description": "Dashboard tab label"
+  },
+  "properties": "Properties",
+  "@properties": {
+    "description": "Properties tab label"
+  },
+  "tenants": "Tenants",
+  "@tenants": {
+    "description": "Tenants tab label"
+  },
+  "finances": "Finances",
+  "@finances": {
+    "description": "Finances tab label"
+  },
+  "settings": "Settings",
+  "@settings": {
+    "description": "Settings tab label"
+  },
+  "language": "Language",
+  "@language": {
+    "description": "Language setting label"
+  },
+  "selectLanguage": "Select Language",
+  "@selectLanguage": {
+    "description": "Language selection title"
+  },
+  "choosePreferredLanguage": "Choose your preferred language for the app interface.",
+  "@choosePreferredLanguage": {
+    "description": "Language selection description"
+  },
+  "english": "English",
+  "@english": {
+    "description": "English language option"
+  },
+  "khmer": "Khmer",
+  "@khmer": {
+    "description": "Khmer language option"
+  },
+  "languageChanged": "Language Changed",
+  "@languageChanged": {
+    "description": "Language change confirmation title"
+  },
+  "languageChangedMessage": "Language has been changed to {languageName}.",
+  "@languageChangedMessage": {
+    "description": "Language change confirmation message",
+    "placeholders": {
+      "languageName": {
+        "type": "String",
+        "example": "English"
+      }
+    }
+  },
+  "ok": "OK",
+  "@ok": {
+    "description": "OK button text"
+  },
+  "note": "Note",
+  "@note": {
+    "description": "Note label"
+  },
+  "languageChangeNote": "Language changes will take effect immediately.",
+  "@languageChangeNote": {
+    "description": "Note about language change behavior"
+  }
+}

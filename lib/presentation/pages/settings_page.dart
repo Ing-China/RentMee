@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import '../../core/constants/app_constants.dart';
 
 class SettingsPage extends StatelessWidget {
@@ -70,7 +71,7 @@ class SettingsPage extends StatelessWidget {
               icon: Icons.language,
               title: 'Language',
               subtitle: 'English',
-              onTap: () {},
+              onTap: () => context.push('/language'),
             ),
             _buildSettingsTile(
               icon: Icons.backup_outlined,
