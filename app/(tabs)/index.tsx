@@ -1,5 +1,5 @@
 import { Image } from 'expo-image';
-import { Platform, StyleSheet } from 'react-native';
+import { Platform, StyleSheet, View, Text } from 'react-native';
 
 import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
@@ -51,6 +51,22 @@ export default function HomeScreen() {
           <ThemedText type="defaultSemiBold">app-example</ThemedText>.
         </ThemedText>
       </ThemedView>
+
+      {/* NativeWind Hello World Test */}
+      <View className="bg-blue-500 p-4 m-4 rounded-lg">
+        <Text className="text-white text-xl font-bold text-center">
+          Hello World with NativeWind! 🎉
+        </Text>
+        <Text className="text-white text-sm text-center mt-2">
+          Tailwind CSS is working in React Native!
+        </Text>
+      </View>
+
+      <View className="flex-row justify-between items-center bg-purple-500 p-3 mx-4 mb-4 rounded-full">
+        <Text className="text-white font-semibold">Tailwind Test</Text>
+        <View className="bg-white w-6 h-6 rounded-full"></View>
+      </View>
+
     </ParallaxScrollView>
   );
 }
