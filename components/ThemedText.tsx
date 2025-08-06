@@ -1,5 +1,7 @@
+import { useMemo } from "react";
 import { StyleSheet, Text, type TextProps } from "react-native";
 
+import { useI18n } from "@/contexts/I18nContext";
 import { useTheme } from "@/contexts/ThemeContext";
 
 export type ThemedTextProps = TextProps & {
@@ -16,6 +18,8 @@ export function ThemedText({
   ...rest
 }: ThemedTextProps) {
   const { colors, colorScheme } = useTheme();
+  const { locale } = useI18n();
+
   const color =
     lightColor && colorScheme === "light"
       ? lightColor
@@ -23,10 +27,39 @@ export function ThemedText({
         ? darkColor
         : colors.text;
 
+  // Font constants for better maintainability
+  const FONTS = {
+    km: {
+      regular: "KantumruyPro-Regular",
+      semiBold: "KantumruyPro-SemiBold",
+      bold: "KantumruyPro-Bold",
+    },
+    en: {
+      regular: undefined, // System default
+      semiBold: undefined,
+      bold: undefined,
+    },
+  } as const;
+
+  // Memoized font selection for better performance
+  const fontFamily = useMemo(() => {
+    const fontSet = FONTS[locale] || FONTS.en;
+
+    switch (type) {
+      case "title":
+      case "subtitle":
+        return fontSet.bold;
+      case "defaultSemiBold":
+        return fontSet.semiBold;
+      default:
+        return fontSet.regular;
+    }
+  }, [locale, type]);
+
   return (
     <Text
       style={[
-        { color },
+        { color, fontFamily },
         type === "default" ? styles.default : undefined,
         type === "title" ? styles.title : undefined,
         type === "defaultSemiBold" ? styles.defaultSemiBold : undefined,

@@ -4,42 +4,42 @@ import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { IconSymbol } from "@/components/ui/IconSymbol";
 import { useTheme } from "@/contexts/ThemeContext";
-
-type ThemeOption = "system" | "light" | "dark";
+import { ThemeMode } from "@/theme/config";
+import { t } from "@lingui/core/macro";
 
 export default function AppearanceScreen() {
-  const { theme, setTheme, colors } = useTheme();
+  const { theme, changeTheme, colors } = useTheme();
 
   const themeOptions = [
     {
-      id: "system" as ThemeOption,
-      title: "System",
-      subtitle: "Use device setting",
+      id: "system" as ThemeMode,
+      title: t`System`,
+      subtitle: t`Use device setting`,
       icon: "gear" as const,
     },
     {
-      id: "light" as ThemeOption,
-      title: "Light",
-      subtitle: "Light appearance",
+      id: "light" as ThemeMode,
+      title: t`Light`,
+      subtitle: t`Light appearance`,
       icon: "sun.max.fill" as const,
     },
     {
-      id: "dark" as ThemeOption,
-      title: "Dark",
-      subtitle: "Dark appearance",
+      id: "dark" as ThemeMode,
+      title: t`Dark`,
+      subtitle: t`Dark appearance`,
       icon: "moon.fill" as const,
     },
   ];
 
-  const handleThemeSelect = (newTheme: ThemeOption) => {
-    setTheme(newTheme);
+  const handleThemeSelect = (newTheme: ThemeMode) => {
+    changeTheme(newTheme);
   };
 
   return (
     <ScrollView style={styles.container}>
       <ThemedView style={styles.section}>
         <ThemedText type="subtitle" style={styles.sectionTitle}>
-          Theme
+          {t`Theme`}
         </ThemedText>
 
         {themeOptions.map((option, index) => (

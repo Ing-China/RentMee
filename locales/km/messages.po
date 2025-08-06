@@ -1,0 +1,67 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2025-08-06 15:33+0700\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: km\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
+
+#: app/(tabs)/settings/_layout.tsx:27
+msgid "Appearance"
+msgstr "រូបរាង"
+
+#: app/(tabs)/settings/appearance.tsx:28
+msgid "Dark"
+msgstr "ងងឹត"
+
+#: app/(tabs)/settings/appearance.tsx:29
+msgid "Dark appearance"
+msgstr "ទស្សនាវិស័យងងឹត"
+
+#: app/(tabs)/settings/language.tsx:19
+msgid "English"
+msgstr "អង់គ្លេស"
+
+#: app/(tabs)/settings/language.tsx:20
+msgid "English (US)"
+msgstr "អង់គ្លេស (អាមេរិក)"
+
+#: app/(tabs)/settings/language.tsx:25
+msgid "Khmer"
+msgstr "ខ្មែរ"
+
+#: app/(tabs)/settings/language.tsx:26
+msgid "Khmer (Cambodia)"
+msgstr "ខ្មែរ (កម្ពុជា)"
+
+#: app/(tabs)/settings/_layout.tsx:38
+#: app/(tabs)/settings/language.tsx:39
+msgid "Language"
+msgstr "ភាសា"
+
+#: app/(tabs)/settings/appearance.tsx:22
+msgid "Light"
+msgstr "ស្រាល"
+
+#: app/(tabs)/settings/appearance.tsx:23
+msgid "Light appearance"
+msgstr "ទស្សនាវិស័យស្រាល"
+
+#: app/(tabs)/settings/appearance.tsx:16
+msgid "System"
+msgstr "ស្វ័យប្រវត្តិ"
+
+#: app/(tabs)/settings/appearance.tsx:42
+msgid "Theme"
+msgstr "ធីម"
+
+#: app/(tabs)/settings/appearance.tsx:17
+msgid "Use device setting"
+msgstr "ប្រើការកំណត់ដោយស្វ័យប្រវត្តិ"

@@ -1,41 +1,42 @@
 import { ScrollView, StyleSheet, TouchableOpacity } from "react-native";
-import { useState } from "react";
 
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
-import { IconSymbol } from "@/components/ui/IconSymbol";
+import { useI18n } from "@/contexts/I18nContext";
 import { useTheme } from "@/contexts/ThemeContext";
+import { LocalizCode } from "@/i18n/config";
+import { t } from "@lingui/core/macro";
 
-type LanguageOption = "en" | "km";
+type LanguageOption = LocalizCode;
 
 export default function LanguageScreen() {
   const { colors } = useTheme();
-  const [selectedLanguage, setSelectedLanguage] = useState<LanguageOption>("en");
+  const { locale, changeLocale } = useI18n();
 
   const languageOptions = [
     {
       id: "en" as LanguageOption,
-      title: "English",
-      subtitle: "English (US)",
+      title: t`English`,
+      subtitle: t`English (US)`,
       flag: "🇺🇸",
     },
     {
       id: "km" as LanguageOption,
-      title: "ខ្មែរ",
-      subtitle: "Khmer (Cambodia)",
+      title: t`Khmer`,
+      subtitle: t`Khmer (Cambodia)`,
       flag: "🇰🇭",
     },
   ];
 
   const handleLanguageSelect = (newLanguage: LanguageOption) => {
-    setSelectedLanguage(newLanguage);
+    changeLocale(newLanguage);
   };
 
   return (
     <ScrollView style={styles.container}>
       <ThemedView style={styles.section}>
         <ThemedText type="subtitle" style={styles.sectionTitle}>
-          Language
+          {t`Language`}
         </ThemedText>
 
         {languageOptions.map((option, index) => (
@@ -68,7 +69,7 @@ export default function LanguageScreen() {
             <ThemedView
               style={[styles.radioButton, { borderColor: colors.tint }]}
             >
-              {selectedLanguage === option.id && (
+              {locale === option.id && (
                 <ThemedView
                   style={[
                     styles.radioButtonInner,
