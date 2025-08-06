@@ -1,65 +1,61 @@
 import { ScrollView, StyleSheet, TouchableOpacity } from "react-native";
+import { useState } from "react";
 
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { IconSymbol } from "@/components/ui/IconSymbol";
 import { useTheme } from "@/contexts/ThemeContext";
 
-type ThemeOption = "system" | "light" | "dark";
+type LanguageOption = "en" | "km";
 
-export default function AppearanceScreen() {
-  const { theme, setTheme, colors } = useTheme();
+export default function LanguageScreen() {
+  const { colors } = useTheme();
+  const [selectedLanguage, setSelectedLanguage] = useState<LanguageOption>("en");
 
-  const themeOptions = [
+  const languageOptions = [
     {
-      id: "system" as ThemeOption,
-      title: "System",
-      subtitle: "Use device setting",
-      icon: "gear" as const,
+      id: "en" as LanguageOption,
+      title: "English",
+      subtitle: "English (US)",
+      flag: "🇺🇸",
     },
     {
-      id: "light" as ThemeOption,
-      title: "Light",
-      subtitle: "Light appearance",
-      icon: "sun.max.fill" as const,
-    },
-    {
-      id: "dark" as ThemeOption,
-      title: "Dark",
-      subtitle: "Dark appearance",
-      icon: "moon.fill" as const,
+      id: "km" as LanguageOption,
+      title: "ខ្មែរ",
+      subtitle: "Khmer (Cambodia)",
+      flag: "🇰🇭",
     },
   ];
 
-  const handleThemeSelect = (newTheme: ThemeOption) => {
-    setTheme(newTheme);
+  const handleLanguageSelect = (newLanguage: LanguageOption) => {
+    setSelectedLanguage(newLanguage);
   };
 
   return (
     <ScrollView style={styles.container}>
       <ThemedView style={styles.section}>
         <ThemedText type="subtitle" style={styles.sectionTitle}>
-          Theme
+          Language
         </ThemedText>
 
-        {themeOptions.map((option, index) => (
+        {languageOptions.map((option, index) => (
           <TouchableOpacity
             key={option.id}
             style={[
-              styles.themeOption,
+              styles.languageOption,
               { borderColor: colors.icon + "20" },
-              index === themeOptions.length - 1 && { borderBottomWidth: 0 },
+              index === languageOptions.length - 1 && { borderBottomWidth: 0 },
             ]}
-            onPress={() => handleThemeSelect(option.id)}
+            onPress={() => handleLanguageSelect(option.id)}
           >
             <ThemedView style={styles.optionContent}>
               <ThemedView
                 style={[
-                  styles.iconContainer,
+                  styles.flagContainer,
                   { backgroundColor: colors.icon + "20" },
                 ]}
               >
-                <IconSymbol name={option.icon} size={20} color={colors.tint} />
+                <ThemedText style={styles.flag}>{option.flag}</ThemedText>
               </ThemedView>
               <ThemedView style={styles.textContainer}>
                 <ThemedText type="defaultSemiBold">{option.title}</ThemedText>
@@ -72,7 +68,7 @@ export default function AppearanceScreen() {
             <ThemedView
               style={[styles.radioButton, { borderColor: colors.tint }]}
             >
-              {theme === option.id && (
+              {selectedLanguage === option.id && (
                 <ThemedView
                   style={[
                     styles.radioButtonInner,
@@ -99,7 +95,7 @@ const styles = StyleSheet.create({
   sectionTitle: {
     padding: 15,
   },
-  themeOption: {
+  languageOption: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
@@ -112,13 +108,16 @@ const styles = StyleSheet.create({
     alignItems: "center",
     flex: 1,
   },
-  iconContainer: {
-    width: 36,
-    height: 36,
+  flagContainer: {
+    width: 35,
+    height: 35,
     borderRadius: 8,
     alignItems: "center",
     justifyContent: "center",
     marginRight: 15,
+  },
+  flag: {
+    fontSize: 18,
   },
   textContainer: {
     flex: 1,

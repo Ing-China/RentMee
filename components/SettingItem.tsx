@@ -1,11 +1,10 @@
 import React from "react";
-import { TouchableOpacity, View } from "react-native";
+import { StyleSheet, TouchableOpacity } from "react-native";
 
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { IconSymbol } from "@/components/ui/IconSymbol";
-import { Colors } from "@/constants/Colors";
-import { useColorScheme } from "@/hooks/useColorScheme";
+import { useTheme } from "@/contexts/ThemeContext";
 
 export interface SettingItemProps {
   icon: string;
@@ -14,6 +13,7 @@ export interface SettingItemProps {
   onPress?: () => void;
   rightElement?: React.ReactNode;
   showArrow?: boolean;
+  isLast?: boolean;
 }
 
 export function SettingItem({
@@ -23,38 +23,81 @@ export function SettingItem({
   onPress,
   rightElement,
   showArrow = true,
+  isLast = false,
 }: SettingItemProps) {
-  const colorScheme = useColorScheme();
+  const { colors } = useTheme();
 
   return (
     <TouchableOpacity
-      className="flex-row items-center justify-between py-4 px-4 border-b-[0.5px] rounded-xl mb-0.5"
-      style={{ borderBottomColor: Colors[colorScheme ?? "light"].icon + "50" }}
+      style={[
+        styles.container,
+        {
+          borderBottomColor: colors.icon + "50",
+          borderBottomWidth: !isLast ? 0.5 : 0,
+        },
+      ]}
       onPress={onPress}
     >
-      <ThemedView className="flex-row items-center flex-1">
-        <View className="w-9 h-9 rounded-lg items-center justify-center mr-3 bg-primary-50">
-          <IconSymbol name={icon as any} size={20} color="#0ea5e9" />
-        </View>
-        <ThemedView className="flex-1">
+      <ThemedView style={styles.contentContainer}>
+        <ThemedView
+          style={[
+            styles.iconContainer,
+            { backgroundColor: colors.icon + "20" },
+          ]}
+        >
+          <IconSymbol name={icon as any} size={20} color={colors.tint} />
+        </ThemedView>
+        <ThemedView style={styles.textContainer}>
           <ThemedText type="defaultSemiBold">{title}</ThemedText>
           {subtitle && (
-            <ThemedText className="text-xs opacity-60 mt-0.5">
-              {subtitle}
-            </ThemedText>
+            <ThemedText style={styles.subtitle}>{subtitle}</ThemedText>
           )}
         </ThemedView>
       </ThemedView>
-      <ThemedView className="flex-row items-center gap-2.5">
+      <ThemedView style={styles.rightContainer}>
         {rightElement}
         {showArrow && (
-          <IconSymbol
-            name="chevron.right"
-            size={16}
-            color={Colors[colorScheme ?? "light"].icon}
-          />
+          <IconSymbol name="chevron.right" size={16} color={colors.icon} />
         )}
       </ThemedView>
     </TouchableOpacity>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    paddingVertical: 16,
+    paddingHorizontal: 16,
+    borderRadius: 12,
+    marginBottom: 2,
+  },
+  contentContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    flex: 1,
+  },
+  iconContainer: {
+    width: 36,
+    height: 36,
+    borderRadius: 8,
+    alignItems: "center",
+    justifyContent: "center",
+    marginRight: 16,
+  },
+  textContainer: {
+    flex: 1,
+  },
+  subtitle: {
+    fontSize: 12,
+    opacity: 0.6,
+    marginTop: 2,
+  },
+  rightContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 10,
+  },
+});

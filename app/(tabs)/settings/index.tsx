@@ -1,7 +1,7 @@
 import { Image } from "expo-image";
 import { router } from "expo-router";
 import { useState } from "react";
-import { ScrollView, Switch, TouchableOpacity } from "react-native";
+import { ScrollView, StyleSheet, Switch, TouchableOpacity } from "react-native";
 import {
   SafeAreaView,
   useSafeAreaInsets,
@@ -11,41 +11,38 @@ import { SettingItem } from "@/components/SettingItem";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { IconSymbol } from "@/components/ui/IconSymbol";
+import { useTheme } from "@/contexts/ThemeContext";
 
 export default function SettingsScreen() {
   const insets = useSafeAreaInsets();
+  const { colors } = useTheme();
   const [notifications, setNotifications] = useState(true);
-  const [autoBackup, setAutoBackup] = useState(true);
 
   return (
-    <SafeAreaView className="flex-1" edges={["left", "right"]}>
-      <ScrollView className="flex-1">
+    <SafeAreaView style={styles.container} edges={["left", "right"]}>
+      <ScrollView style={styles.scrollView}>
         <ThemedView
-          className="px-5 pb-5 items-center"
-          style={{ paddingTop: insets.top + 20 }}
+          style={[styles.profileSection, { paddingTop: insets.top + 20 }]}
         >
-          <ThemedView className="items-center">
+          <ThemedView style={styles.profileContent}>
             <Image
               source="https://i.pinimg.com/736x/92/26/d7/9226d738bb7e00aa1bff0b73b786ae00.jpg"
-              style={{
-                width: 128,
-                height: 128,
-                borderRadius: 64,
-                marginBottom: 12,
-              }}
+              style={styles.profileImage}
               contentFit="cover"
             />
-            <ThemedText type="title" className="mb-1">
+            <ThemedText type="title" style={styles.profileName}>
               Ing China
             </ThemedText>
-            <ThemedText className="text-sm opacity-70">
+            <ThemedText
+              style={[styles.profileEmail, { color: colors.text + "B3" }]}
+            >
               ing.china@email.com
             </ThemedText>
           </ThemedView>
         </ThemedView>
 
-        <ThemedView className="mx-4 rounded-xl my-8">
-          <ThemedText type="subtitle" className="m-4 bg-red">
+        <ThemedView style={styles.section}>
+          <ThemedText type="subtitle" style={styles.sectionTitle}>
             Account
           </ThemedText>
 
@@ -61,11 +58,12 @@ export default function SettingsScreen() {
             title="Billing & Subscriptions"
             subtitle="Manage payment methods and plans"
             onPress={() => console.log("Billing pressed")}
+            isLast
           />
         </ThemedView>
 
-        <ThemedView className="mx-4 rounded-xl mb-8">
-          <ThemedText type="subtitle" className="m-4 bg-red">
+        <ThemedView style={styles.section}>
+          <ThemedText type="subtitle" style={styles.sectionTitle}>
             Preferences
           </ThemedText>
 
@@ -79,7 +77,7 @@ export default function SettingsScreen() {
                 onValueChange={setNotifications}
                 trackColor={{
                   false: "#E5E7EB",
-                  true: "#0ea5e9",
+                  true: colors.tint,
                 }}
                 thumbColor={notifications ? "#fff" : "#f4f3f4"}
               />
@@ -95,26 +93,16 @@ export default function SettingsScreen() {
           />
 
           <SettingItem
-            icon="icloud.fill"
-            title="Auto Backup"
-            subtitle="Automatically backup data"
-            rightElement={
-              <Switch
-                value={autoBackup}
-                onValueChange={setAutoBackup}
-                trackColor={{
-                  false: "#E5E7EB",
-                  true: "#0ea5e9",
-                }}
-                thumbColor={autoBackup ? "#fff" : "#f4f3f4"}
-              />
-            }
-            showArrow={false}
+            icon="globe"
+            title="Language"
+            subtitle="App display language"
+            onPress={() => router.push("/settings/language")}
+            isLast
           />
         </ThemedView>
 
-        <ThemedView className="mx-4 rounded-xl mb-8">
-          <ThemedText type="subtitle" className="m-4 bg-red">
+        <ThemedView style={styles.section}>
+          <ThemedText type="subtitle" style={styles.sectionTitle}>
             Data & Privacy
           </ThemedText>
 
@@ -137,11 +125,12 @@ export default function SettingsScreen() {
             title="Delete Account"
             subtitle="Permanently delete your account"
             onPress={() => console.log("Delete pressed")}
+            isLast
           />
         </ThemedView>
 
-        <ThemedView className="mx-4 rounded-xl mb-8">
-          <ThemedText type="subtitle" className="m-4 bg-red">
+        <ThemedView style={styles.section}>
+          <ThemedText type="subtitle" style={styles.sectionTitle}>
             Support
           </ThemedText>
 
@@ -164,29 +153,91 @@ export default function SettingsScreen() {
             title="About"
             subtitle="App version and legal info"
             onPress={() => console.log("About pressed")}
+            isLast
           />
         </ThemedView>
 
-        <ThemedView className="mx-4 mb-8 rounded-xl">
+        <ThemedView style={styles.signOutSection}>
           <TouchableOpacity
-            className="flex-row items-center justify-center py-4 border rounded-xl gap-2.5"
-            style={{ borderColor: "#ff3b30" }}
+            style={[styles.signOutButton, { borderColor: "#ff3b30" }]}
             onPress={() => console.log("Signed out")}
           >
             <IconSymbol name="power" size={20} color="#ff3b30" />
-            <ThemedText
-              className="text-base font-semibold"
-              style={{ color: "#ff3b30" }}
-            >
-              Sign Out
-            </ThemedText>
+            <ThemedText style={styles.signOutText}>Sign Out</ThemedText>
           </TouchableOpacity>
         </ThemedView>
 
-        <ThemedView className="items-center py-4">
-          <ThemedText className="text-xs opacity-50">RentMe v1.0.0</ThemedText>
+        <ThemedView style={styles.versionSection}>
+          <ThemedText
+            style={[styles.versionText, { color: colors.text + "80" }]}
+          >
+            RentMe v1.0.0
+          </ThemedText>
         </ThemedView>
       </ScrollView>
     </SafeAreaView>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  scrollView: {
+    flex: 1,
+  },
+  profileSection: {
+    paddingHorizontal: 20,
+    paddingBottom: 20,
+    alignItems: "center",
+  },
+  profileContent: {
+    alignItems: "center",
+  },
+  profileImage: {
+    width: 128,
+    height: 128,
+    borderRadius: 64,
+    marginBottom: 12,
+  },
+  profileName: {
+    marginBottom: 4,
+  },
+  profileEmail: {
+    fontSize: 14,
+  },
+  section: {
+    marginHorizontal: 16,
+    borderRadius: 12,
+    marginVertical: 16,
+  },
+  sectionTitle: {
+    margin: 16,
+  },
+  signOutSection: {
+    marginHorizontal: 15,
+    marginBottom: 15,
+    borderRadius: 12,
+  },
+  signOutButton: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    paddingVertical: 16,
+    borderWidth: 1,
+    borderRadius: 12,
+    gap: 10,
+  },
+  signOutText: {
+    fontSize: 16,
+    fontWeight: "600",
+    color: "#ff3b30",
+  },
+  versionSection: {
+    alignItems: "center",
+    paddingVertical: 16,
+  },
+  versionText: {
+    fontSize: 12,
+  },
+});
