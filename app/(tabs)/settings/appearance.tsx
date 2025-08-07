@@ -93,11 +93,12 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   section: {
-    margin: 15,
-    borderRadius: 15,
+    margin: 16,
+    borderRadius: 16,
   },
   sectionTitle: {
-    padding: 15,
+    paddingTop: 16,
+    paddingHorizontal: 16,
   },
   themeOption: {
     flexDirection: "row",
@@ -118,7 +119,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     alignItems: "center",
     justifyContent: "center",
-    marginRight: 15,
+    marginRight: 16,
   },
   textContainer: {
     flex: 1,

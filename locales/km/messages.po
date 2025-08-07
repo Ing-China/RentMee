@@ -13,9 +13,34 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#: app/(tabs)/settings/index.tsx:154
+msgid "About"
+msgstr "អំពី"
+
+#: app/(tabs)/settings/index.tsx:47
+msgid "Account"
+msgstr "គណនី"
+
+#: app/(tabs)/settings/index.tsx:99
+msgid "App display language"
+msgstr "ភាសាបង្ហាញកម្មវិធី"
+
+#: app/(tabs)/settings/index.tsx:155
+msgid "App version and legal info"
+msgstr "កំណែកម្មវិធី និងព័ត៌មានផ្លូវច្បាប់"
+
 #: app/(tabs)/settings/_layout.tsx:27
+#: app/(tabs)/settings/index.tsx:91
 msgid "Appearance"
 msgstr "រូបរាង"
+
+#: app/(tabs)/settings/index.tsx:59
+msgid "Billing & Subscriptions"
+msgstr "វិក្កយបត្រ និងការជាវ"
+
+#: app/(tabs)/settings/index.tsx:113
+msgid "Control data sharing and privacy"
+msgstr "គ្រប់គ្រងការចែករំលែកទិន្នន័យ និងឯកជនភាព"
 
 #: app/(tabs)/settings/appearance.tsx:28
 msgid "Dark"
@@ -23,7 +48,23 @@ msgstr "ងងឹត"
 
 #: app/(tabs)/settings/appearance.tsx:29
 msgid "Dark appearance"
-msgstr "ទស្សនាវិស័យងងឹត"
+msgstr "ទស្សនាបែបងងឹត"
+
+#: app/(tabs)/settings/index.tsx:92
+msgid "Dark mode, theme settings"
+msgstr "របៀបងងឹត, ការកំណត់ធីម"
+
+#: app/(tabs)/settings/index.tsx:107
+msgid "Data & Privacy"
+msgstr "ទិន្នន័យ និងឯកជនភាព"
+
+#: app/(tabs)/settings/index.tsx:126
+msgid "Delete Account"
+msgstr "លុបគណនី"
+
+#: app/(tabs)/settings/index.tsx:120
+msgid "Download your rental data"
+msgstr "ទាញយកទិន្នន័យជួលរបស់អ្នក"
 
 #: app/(tabs)/settings/language.tsx:19
 msgid "English"
@@ -33,6 +74,18 @@ msgstr "អង់គ្លេស"
 msgid "English (US)"
 msgstr "អង់គ្លេស (អាមេរិក)"
 
+#: app/(tabs)/settings/index.tsx:119
+msgid "Export Data"
+msgstr "នាំចេញទិន្នន័យ"
+
+#: app/(tabs)/settings/index.tsx:141
+msgid "Get help and contact support"
+msgstr "ទទួលបានជំនួយ និងទំនាក់ទំនងជាមួយការគាំទ្រ"
+
+#: app/(tabs)/settings/index.tsx:140
+msgid "Help & Support"
+msgstr "ជំនួយ និងការគាំទ្រ"
+
 #: app/(tabs)/settings/language.tsx:25
 msgid "Khmer"
 msgstr "ខ្មែរ"
@@ -41,18 +94,67 @@ msgstr "ខ្មែរ"
 msgid "Khmer (Cambodia)"
 msgstr "ខ្មែរ (កម្ពុជា)"
 
-#: app/(tabs)/settings/_layout.tsx:38
+#: app/(tabs)/settings/_layout.tsx:40
+#: app/(tabs)/settings/index.tsx:98
 #: app/(tabs)/settings/language.tsx:39
 msgid "Language"
 msgstr "ភាសា"
 
 #: app/(tabs)/settings/appearance.tsx:22
 msgid "Light"
-msgstr "ស្រាល"
+msgstr "ភ្លឺ"
 
 #: app/(tabs)/settings/appearance.tsx:23
 msgid "Light appearance"
-msgstr "ទស្សនាវិស័យស្រាល"
+msgstr "ទស្សនាបែបភ្លឺ"
+
+#: app/(tabs)/settings/index.tsx:60
+msgid "Manage payment methods and plans"
+msgstr "គ្រប់គ្រងវិធីសាស្ត្របង់ប្រាក់ និងផែនការ"
+
+#: app/(tabs)/settings/index.tsx:53
+msgid "Manage your personal information"
+msgstr "គ្រប់គ្រងព័ត៌មានផ្ទាល់ខ្លួនរបស់អ្នក"
+
+#: app/(tabs)/settings/index.tsx:73
+msgid "Notifications"
+msgstr "ការជូនដំណឹង"
+
+#: app/(tabs)/settings/index.tsx:127
+msgid "Permanently delete your account"
+msgstr "លុបគណនីរបស់អ្នកជាអចិន្ត្រៃយ៍"
+
+#: app/(tabs)/settings/index.tsx:68
+msgid "Preferences"
+msgstr "ចំណូលចិត្ត"
+
+#: app/(tabs)/settings/index.tsx:112
+msgid "Privacy Settings"
+msgstr "ការកំណត់ឯកជនភាព"
+
+#: app/(tabs)/settings/index.tsx:52
+msgid "Profile"
+msgstr "ប្រវត្តិរូប"
+
+#: app/(tabs)/settings/index.tsx:74
+msgid "Push notifications and alerts"
+msgstr "ការជូនដំណឹងរុញ និងការព្រមាន"
+
+#: app/(tabs)/settings/index.tsx:147
+msgid "Rate App"
+msgstr "វាយតម្លៃកម្មវិធី"
+
+#: app/(tabs)/settings/index.tsx:148
+msgid "Rate us on the App Store"
+msgstr "វាយតម្លៃយើងនៅលើ App Store"
+
+#: app/(tabs)/settings/index.tsx:167
+msgid "Sign Out"
+msgstr "ចេញពីគណនី"
+
+#: app/(tabs)/settings/index.tsx:135
+msgid "Support"
+msgstr "ការគាំទ្រ"
 
 #: app/(tabs)/settings/appearance.tsx:16
 msgid "System"

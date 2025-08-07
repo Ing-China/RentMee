@@ -9,6 +9,11 @@ import {
   KantumruyPro_700Bold,
   useFonts,
 } from "@expo-google-fonts/kantumruy-pro";
+import {
+  Roboto_400Regular,
+  Roboto_500Medium,
+  Roboto_700Bold,
+} from "@expo-google-fonts/roboto";
 import { i18n } from "@lingui/core";
 import { I18nProvider } from "@lingui/react";
 import { SplashScreen } from "expo-router";
@@ -44,6 +49,9 @@ export const I18nProviderWrapper = ({
     KantumruyPro_500Medium,
     KantumruyPro_600SemiBold,
     KantumruyPro_400Regular,
+    Roboto_400Regular,
+    Roboto_500Medium,
+    Roboto_700Bold,
   });
 
   useEffect(() => {

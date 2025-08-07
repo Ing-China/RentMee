@@ -12,11 +12,16 @@ import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { IconSymbol } from "@/components/ui/IconSymbol";
 import { useTheme } from "@/contexts/ThemeContext";
+import { getFontForText } from "@/lib/textUtils";
+import { Trans } from "@lingui/macro";
 
 export default function SettingsScreen() {
   const insets = useSafeAreaInsets();
   const { colors } = useTheme();
   const [notifications, setNotifications] = useState(true);
+
+  const userName = "Monkey D. Luffy";
+  const userEmail = "luffy2004@email.com";
 
   return (
     <SafeAreaView style={styles.container} edges={["left", "right"]}>
@@ -30,33 +35,43 @@ export default function SettingsScreen() {
               style={styles.profileImage}
               contentFit="cover"
             />
-            <ThemedText type="title" style={styles.profileName}>
-              Ing China
+            <ThemedText
+              type="title"
+              style={[
+                styles.profileName,
+                { fontFamily: getFontForText(userName, "semiBold") },
+              ]}
+            >
+              {userName}
             </ThemedText>
             <ThemedText
-              style={[styles.profileEmail, { color: colors.text + "B3" }]}
+              style={[
+                styles.profileEmail,
+                { color: colors.text + "B3" },
+                { fontFamily: getFontForText(userEmail, "regular") },
+              ]}
             >
-              ing.china@email.com
+              {userEmail}
             </ThemedText>
           </ThemedView>
         </ThemedView>
 
         <ThemedView style={styles.section}>
           <ThemedText type="subtitle" style={styles.sectionTitle}>
-            Account
+            <Trans>Account</Trans>
           </ThemedText>
 
           <SettingItem
             icon="person.circle.fill"
-            title="Profile"
-            subtitle="Manage your personal information"
+            title={<Trans>Profile</Trans>}
+            subtitle={<Trans>Manage your personal information</Trans>}
             onPress={() => console.log("Profile pressed")}
           />
 
           <SettingItem
             icon="creditcard.fill"
-            title="Billing & Subscriptions"
-            subtitle="Manage payment methods and plans"
+            title={<Trans>Billing & Subscriptions</Trans>}
+            subtitle={<Trans>Manage payment methods and plans</Trans>}
             onPress={() => console.log("Billing pressed")}
             isLast
           />
@@ -64,19 +79,19 @@ export default function SettingsScreen() {
 
         <ThemedView style={styles.section}>
           <ThemedText type="subtitle" style={styles.sectionTitle}>
-            Preferences
+            <Trans>Preferences</Trans>
           </ThemedText>
 
           <SettingItem
             icon="bell.fill"
-            title="Notifications"
-            subtitle="Push notifications and alerts"
+            title={<Trans>Notifications</Trans>}
+            subtitle={<Trans>Push notifications and alerts</Trans>}
             rightElement={
               <Switch
                 value={notifications}
                 onValueChange={setNotifications}
                 trackColor={{
-                  false: "#E5E7EB",
+                  false: colors.icon,
                   true: colors.tint,
                 }}
                 thumbColor={notifications ? "#fff" : "#f4f3f4"}
@@ -87,15 +102,15 @@ export default function SettingsScreen() {
 
           <SettingItem
             icon="moon.fill"
-            title="Appearance"
-            subtitle="Dark mode, theme settings"
+            title={<Trans>Appearance</Trans>}
+            subtitle={<Trans>Dark mode, theme settings</Trans>}
             onPress={() => router.push("/settings/appearance")}
           />
 
           <SettingItem
             icon="globe"
-            title="Language"
-            subtitle="App display language"
+            title={<Trans>Language</Trans>}
+            subtitle={<Trans>App display language</Trans>}
             onPress={() => router.push("/settings/language")}
             isLast
           />
@@ -103,27 +118,27 @@ export default function SettingsScreen() {
 
         <ThemedView style={styles.section}>
           <ThemedText type="subtitle" style={styles.sectionTitle}>
-            Data & Privacy
+            <Trans>Data & Privacy</Trans>
           </ThemedText>
 
           <SettingItem
             icon="lock.fill"
-            title="Privacy Settings"
-            subtitle="Control data sharing and privacy"
+            title={<Trans>Privacy Settings</Trans>}
+            subtitle={<Trans>Control data sharing and privacy</Trans>}
             onPress={() => console.log("Privacy pressed")}
           />
 
           <SettingItem
             icon="arrow.down.doc.fill"
-            title="Export Data"
-            subtitle="Download your rental data"
+            title={<Trans>Export Data</Trans>}
+            subtitle={<Trans>Download your rental data</Trans>}
             onPress={() => console.log("Export pressed")}
           />
 
           <SettingItem
             icon="trash.fill"
-            title="Delete Account"
-            subtitle="Permanently delete your account"
+            title={<Trans>Delete Account</Trans>}
+            subtitle={<Trans>Permanently delete your account</Trans>}
             onPress={() => console.log("Delete pressed")}
             isLast
           />
@@ -131,27 +146,27 @@ export default function SettingsScreen() {
 
         <ThemedView style={styles.section}>
           <ThemedText type="subtitle" style={styles.sectionTitle}>
-            Support
+            <Trans>Support</Trans>
           </ThemedText>
 
           <SettingItem
             icon="questionmark.circle.fill"
-            title="Help & Support"
-            subtitle="Get help and contact support"
+            title={<Trans>Help & Support</Trans>}
+            subtitle={<Trans>Get help and contact support</Trans>}
             onPress={() => console.log("Help pressed")}
           />
 
           <SettingItem
             icon="star.fill"
-            title="Rate App"
-            subtitle="Rate us on the App Store"
+            title={<Trans>Rate App</Trans>}
+            subtitle={<Trans>Rate us on the App Store</Trans>}
             onPress={() => console.log("Rate pressed")}
           />
 
           <SettingItem
             icon="info.circle.fill"
-            title="About"
-            subtitle="App version and legal info"
+            title={<Trans>About</Trans>}
+            subtitle={<Trans>App version and legal info</Trans>}
             onPress={() => console.log("About pressed")}
             isLast
           />
@@ -163,7 +178,9 @@ export default function SettingsScreen() {
             onPress={() => console.log("Signed out")}
           >
             <IconSymbol name="power" size={20} color="#ff3b30" />
-            <ThemedText style={styles.signOutText}>Sign Out</ThemedText>
+            <ThemedText style={styles.signOutText}>
+              <Trans>Sign Out</Trans>
+            </ThemedText>
           </TouchableOpacity>
         </ThemedView>
 
@@ -187,8 +204,8 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   profileSection: {
-    paddingHorizontal: 20,
-    paddingBottom: 20,
+    paddingHorizontal: 25,
+    paddingBottom: 25,
     alignItems: "center",
   },
   profileContent: {
@@ -198,7 +215,7 @@ const styles = StyleSheet.create({
     width: 128,
     height: 128,
     borderRadius: 64,
-    marginBottom: 12,
+    marginBottom: 16,
   },
   profileName: {
     marginBottom: 4,
@@ -208,16 +225,17 @@ const styles = StyleSheet.create({
   },
   section: {
     marginHorizontal: 16,
-    borderRadius: 12,
+    borderRadius: 16,
     marginVertical: 16,
   },
   sectionTitle: {
-    margin: 16,
+    paddingTop: 16,
+    paddingHorizontal: 16,
   },
   signOutSection: {
-    marginHorizontal: 15,
-    marginBottom: 15,
-    borderRadius: 12,
+    marginHorizontal: 16,
+    marginVertical: 16,
+    borderRadius: 16,
   },
   signOutButton: {
     flexDirection: "row",
@@ -225,7 +243,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     paddingVertical: 16,
     borderWidth: 1,
-    borderRadius: 12,
+    borderRadius: 16,
     gap: 10,
   },
   signOutText: {
@@ -236,6 +254,7 @@ const styles = StyleSheet.create({
   versionSection: {
     alignItems: "center",
     paddingVertical: 16,
+    marginTop: 16,
   },
   versionText: {
     fontSize: 12,

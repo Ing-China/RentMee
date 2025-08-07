@@ -63,16 +63,19 @@ export const ThemeProviderWrapper = ({
   useEffect(() => {
     if (theme === "system") {
       // Force re-render when system theme changes
+      console.log("System theme changed to:", systemColorScheme);
     }
   }, [systemColorScheme, theme]);
 
   const changeTheme = useCallback(
     async (newTheme: ThemeMode) => {
+      console.log("Changing theme from", theme, "to", newTheme);
       if (theme === newTheme) return;
 
       try {
         setTheme(newTheme);
         await storage.setTheme(newTheme);
+        console.log("Theme changed successfully to:", newTheme);
       } catch (error) {
         console.error("Failed to change theme:", error);
         // Revert theme on error

@@ -30,14 +30,14 @@ export function ThemedText({
   // Font constants for better maintainability
   const FONTS = {
     km: {
-      regular: "KantumruyPro-Regular",
-      semiBold: "KantumruyPro-SemiBold",
-      bold: "KantumruyPro-Bold",
+      regular: "KantumruyPro_400Regular",
+      semiBold: "KantumruyPro_600SemiBold",
+      bold: "KantumruyPro_700Bold",
     },
     en: {
-      regular: undefined, // System default
-      semiBold: undefined,
-      bold: undefined,
+      regular: "Roboto_400Regular",
+      semiBold: "Roboto_500Medium",
+      bold: "Roboto_700Bold",
     },
   } as const;
 
@@ -48,7 +48,7 @@ export function ThemedText({
     switch (type) {
       case "title":
       case "subtitle":
-        return fontSet.bold;
+        return fontSet.semiBold;
       case "defaultSemiBold":
         return fontSet.semiBold;
       default:
@@ -80,16 +80,13 @@ const styles = StyleSheet.create({
   defaultSemiBold: {
     fontSize: 16,
     lineHeight: 24,
-    fontWeight: "600",
   },
   title: {
-    fontSize: 32,
-    fontWeight: "bold",
+    fontSize: 20,
     lineHeight: 32,
   },
   subtitle: {
-    fontSize: 20,
-    fontWeight: "bold",
+    fontSize: 18,
   },
   link: {
     lineHeight: 30,

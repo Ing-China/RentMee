@@ -13,9 +13,34 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#: app/(tabs)/settings/index.tsx:154
+msgid "About"
+msgstr "About"
+
+#: app/(tabs)/settings/index.tsx:47
+msgid "Account"
+msgstr "Account"
+
+#: app/(tabs)/settings/index.tsx:99
+msgid "App display language"
+msgstr "App display language"
+
+#: app/(tabs)/settings/index.tsx:155
+msgid "App version and legal info"
+msgstr "App version and legal info"
+
 #: app/(tabs)/settings/_layout.tsx:27
+#: app/(tabs)/settings/index.tsx:91
 msgid "Appearance"
 msgstr "Appearance"
+
+#: app/(tabs)/settings/index.tsx:59
+msgid "Billing & Subscriptions"
+msgstr "Billing & Subscriptions"
+
+#: app/(tabs)/settings/index.tsx:113
+msgid "Control data sharing and privacy"
+msgstr "Control data sharing and privacy"
 
 #: app/(tabs)/settings/appearance.tsx:28
 msgid "Dark"
@@ -25,6 +50,22 @@ msgstr "Dark"
 msgid "Dark appearance"
 msgstr "Dark appearance"
 
+#: app/(tabs)/settings/index.tsx:92
+msgid "Dark mode, theme settings"
+msgstr "Dark mode, theme settings"
+
+#: app/(tabs)/settings/index.tsx:107
+msgid "Data & Privacy"
+msgstr "Data & Privacy"
+
+#: app/(tabs)/settings/index.tsx:126
+msgid "Delete Account"
+msgstr "Delete Account"
+
+#: app/(tabs)/settings/index.tsx:120
+msgid "Download your rental data"
+msgstr "Download your rental data"
+
 #: app/(tabs)/settings/language.tsx:19
 msgid "English"
 msgstr "English"
@@ -32,6 +73,18 @@ msgstr "English"
 #: app/(tabs)/settings/language.tsx:20
 msgid "English (US)"
 msgstr "English (US)"
+
+#: app/(tabs)/settings/index.tsx:119
+msgid "Export Data"
+msgstr "Export Data"
+
+#: app/(tabs)/settings/index.tsx:141
+msgid "Get help and contact support"
+msgstr "Get help and contact support"
+
+#: app/(tabs)/settings/index.tsx:140
+msgid "Help & Support"
+msgstr "Help & Support"
 
 #: app/(tabs)/settings/language.tsx:25
 msgid "Khmer"
@@ -41,7 +94,8 @@ msgstr "Khmer"
 msgid "Khmer (Cambodia)"
 msgstr "Khmer (Cambodia)"
 
-#: app/(tabs)/settings/_layout.tsx:38
+#: app/(tabs)/settings/_layout.tsx:40
+#: app/(tabs)/settings/index.tsx:98
 #: app/(tabs)/settings/language.tsx:39
 msgid "Language"
 msgstr "Language"
@@ -53,6 +107,54 @@ msgstr "Light"
 #: app/(tabs)/settings/appearance.tsx:23
 msgid "Light appearance"
 msgstr "Light appearance"
+
+#: app/(tabs)/settings/index.tsx:60
+msgid "Manage payment methods and plans"
+msgstr "Manage payment methods and plans"
+
+#: app/(tabs)/settings/index.tsx:53
+msgid "Manage your personal information"
+msgstr "Manage your personal information"
+
+#: app/(tabs)/settings/index.tsx:73
+msgid "Notifications"
+msgstr "Notifications"
+
+#: app/(tabs)/settings/index.tsx:127
+msgid "Permanently delete your account"
+msgstr "Permanently delete your account"
+
+#: app/(tabs)/settings/index.tsx:68
+msgid "Preferences"
+msgstr "Preferences"
+
+#: app/(tabs)/settings/index.tsx:112
+msgid "Privacy Settings"
+msgstr "Privacy Settings"
+
+#: app/(tabs)/settings/index.tsx:52
+msgid "Profile"
+msgstr "Profile"
+
+#: app/(tabs)/settings/index.tsx:74
+msgid "Push notifications and alerts"
+msgstr "Push notifications and alerts"
+
+#: app/(tabs)/settings/index.tsx:147
+msgid "Rate App"
+msgstr "Rate App"
+
+#: app/(tabs)/settings/index.tsx:148
+msgid "Rate us on the App Store"
+msgstr "Rate us on the App Store"
+
+#: app/(tabs)/settings/index.tsx:167
+msgid "Sign Out"
+msgstr "Sign Out"
+
+#: app/(tabs)/settings/index.tsx:135
+msgid "Support"
+msgstr "Support"
 
 #: app/(tabs)/settings/appearance.tsx:16
 msgid "System"

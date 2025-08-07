@@ -8,8 +8,8 @@ import { useTheme } from "@/contexts/ThemeContext";
 
 export interface SettingItemProps {
   icon: string;
-  title: string;
-  subtitle?: string;
+  title: React.ReactNode;
+  subtitle?: React.ReactNode;
   onPress?: () => void;
   rightElement?: React.ReactNode;
   showArrow?: boolean;

@@ -10,7 +10,7 @@ export default function SettingsLayout() {
 
   // Font family for headers based on locale
   const headerFontFamily = useMemo(() => {
-    return locale === "km" ? "KantumruyPro_600SemiBold" : undefined;
+    return locale === "km" ? "KantumruyPro_600SemiBold" : "Roboto_500Medium";
   }, [locale]);
 
   return (
@@ -29,7 +29,9 @@ export default function SettingsLayout() {
           headerTintColor: colorScheme === "dark" ? "#fff" : "#000",
           headerTitleStyle: {
             fontFamily: headerFontFamily,
+            fontSize: 18,
           },
+          headerTitleAlign: "center",
         }}
       />
       <Stack.Screen
@@ -40,6 +42,7 @@ export default function SettingsLayout() {
           headerTintColor: colorScheme === "dark" ? "#fff" : "#000",
           headerTitleStyle: {
             fontFamily: headerFontFamily,
+            fontSize: 18,
           },
         }}
       />

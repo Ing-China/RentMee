@@ -28,7 +28,7 @@ const MAPPING = {
   "person.circle.fill": "account-circle",
   "creditcard.fill": "credit-card",
   "bell.fill": "notifications",
-  "moon.fill": "dark-mode",
+  "moon.fill": "nightlight-round",
   "icloud.fill": "cloud",
   "lock.fill": "lock",
   "arrow.down.doc.fill": "download",
@@ -37,6 +37,10 @@ const MAPPING = {
   "star.fill": "star",
   "info.circle.fill": "info",
   power: "power-settings-new",
+  // Missing mappings for appearance screen
+  gear: "settings",
+  "sun.max.fill": "wb-sunny", // Better light theme icon
+  globe: "language",
 } as IconMapping;
 
 /**
@@ -56,11 +60,26 @@ export function IconSymbol({
   style?: StyleProp<TextStyle>;
   weight?: SymbolWeight;
 }) {
+  const iconName = MAPPING[name];
+  
+  // Fallback to default icon if mapping is missing
+  if (!iconName) {
+    console.warn(`IconSymbol: No mapping found for "${name}". Using default icon.`);
+    return (
+      <MaterialIcons
+        color={color}
+        size={size}
+        name="help-outline"
+        style={style}
+      />
+    );
+  }
+
   return (
     <MaterialIcons
       color={color}
       size={size}
-      name={MAPPING[name]}
+      name={iconName}
       style={style}
     />
   );
