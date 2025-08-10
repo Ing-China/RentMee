@@ -1,12 +1,23 @@
+import { t } from "@lingui/core/macro";
 import { Tabs } from "expo-router";
-import React from "react";
+import React, { useMemo } from "react";
 
 import { HapticTab } from "@/components/HapticTab";
 import { IconSymbol } from "@/components/ui/IconSymbol";
+import { useI18n } from "@/contexts/I18nContext";
 import { useTheme } from "@/contexts/ThemeContext";
 
 export default function TabLayout() {
   const { colors } = useTheme();
+  const { locale } = useI18n();
+
+  const tabBarLabelStyle = useMemo(() => {
+    return {
+      fontFamily:
+        locale === "km" ? "KantumruyPro_500Medium" : "Roboto_500Medium",
+      fontSize: 12,
+    };
+  }, [locale]);
 
   return (
     <Tabs
@@ -14,6 +25,7 @@ export default function TabLayout() {
         tabBarActiveTintColor: colors.tint,
         headerShown: false,
         tabBarButton: HapticTab,
+        tabBarLabelStyle: tabBarLabelStyle,
         tabBarStyle: {
           backgroundColor: colors.background,
         },
@@ -28,7 +40,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="dashboard"
         options={{
-          title: "Dashboard",
+          title: t`Dashboard`,
           tabBarIcon: ({ color }) => (
             <IconSymbol size={28} name="chart.bar.fill" color={color} />
           ),
@@ -37,7 +49,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="properties"
         options={{
-          title: "Properties",
+          title: t`Properties`,
           tabBarIcon: ({ color }) => (
             <IconSymbol size={28} name="house.fill" color={color} />
           ),
@@ -46,7 +58,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="tenants"
         options={{
-          title: "Tenants",
+          title: t`Tenants`,
           tabBarIcon: ({ color }) => (
             <IconSymbol size={28} name="person.2.fill" color={color} />
           ),
@@ -55,7 +67,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="finances"
         options={{
-          title: "Finances",
+          title: t`Finances`,
           tabBarIcon: ({ color }) => (
             <IconSymbol size={28} name="dollarsign.circle.fill" color={color} />
           ),
@@ -64,7 +76,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="settings"
         options={{
-          title: "Settings",
+          title: t`Settings`,
           tabBarIcon: ({ color }) => (
             <IconSymbol size={28} name="gearshape.fill" color={color} />
           ),

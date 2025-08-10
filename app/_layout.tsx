@@ -8,6 +8,7 @@ import { StatusBar } from "expo-status-bar";
 import "react-native-reanimated";
 import "../global.css";
 
+import { AuthProvider } from "@/contexts/AuthContext";
 import { I18nProviderWrapper } from "@/contexts/I18nContext";
 import { ThemeProviderWrapper, useTheme } from "@/contexts/ThemeContext";
 
@@ -19,6 +20,7 @@ function AppContent() {
       value={colorScheme === "dark" ? DarkTheme : DefaultTheme}
     >
       <Stack>
+        <Stack.Screen name="(auth)" options={{ headerShown: false }} />
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="+not-found" />
       </Stack>
@@ -35,7 +37,9 @@ export default function RootLayout() {
   return (
     <I18nProviderWrapper>
       <ThemeProviderWrapper>
-        <AppContent />
+        <AuthProvider>
+          <AppContent />
+        </AuthProvider>
       </ThemeProviderWrapper>
     </I18nProviderWrapper>
   );

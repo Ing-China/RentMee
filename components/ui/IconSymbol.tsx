@@ -41,6 +41,8 @@ const MAPPING = {
   gear: "settings",
   "sun.max.fill": "wb-sunny", // Better light theme icon
   globe: "language",
+  // Login screen icons
+  "envelope.fill": "email",
 } as IconMapping;
 
 /**

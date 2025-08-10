@@ -1,7 +1,7 @@
 import { Image } from "expo-image";
 import { router } from "expo-router";
 import { useState } from "react";
-import { ScrollView, StyleSheet, Switch, TouchableOpacity } from "react-native";
+import { ScrollView, StyleSheet, Switch } from "react-native";
 import {
   SafeAreaView,
   useSafeAreaInsets,
@@ -10,22 +10,47 @@ import {
 import { SettingItem } from "@/components/SettingItem";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
-import { IconSymbol } from "@/components/ui/IconSymbol";
+import { ThemedAlert } from "@/components/ui/ThemedAlert";
+import { ThemedButton } from "@/components/ui/ThemedButton";
+import { useAuth } from "@/contexts/AuthContext";
 import { useTheme } from "@/contexts/ThemeContext";
+import { useThemedAlert } from "@/hooks/useThemedAlert";
 import { getFontForText } from "@/lib/textUtils";
-import { Trans } from "@lingui/macro";
+import { Trans, t } from "@lingui/macro";
 
 export default function SettingsScreen() {
   const insets = useSafeAreaInsets();
   const { colors } = useTheme();
+  const { logout } = useAuth();
+  const { alertConfig, showAlert, hideAlert } = useThemedAlert();
   const [notifications, setNotifications] = useState(true);
 
   const userName = "Monkey D. Luffy";
   const userEmail = "luffy2004@email.com";
 
+  const handleLogout = () => {
+    showAlert(t`Sign Out`, t`Are you sure you want to sign out?`, [
+      {
+        text: t`Cancel`,
+        style: "cancel",
+      },
+      {
+        text: t`Sign Out`,
+        style: "destructive",
+        onPress: () => {
+          logout();
+          router.replace("/(auth)/login");
+        },
+      },
+    ]);
+  };
+
   return (
     <SafeAreaView style={styles.container} edges={["left", "right"]}>
-      <ScrollView style={styles.scrollView}>
+      <ScrollView
+        style={styles.scrollView}
+        showsVerticalScrollIndicator={false}
+      >
         <ThemedView
           style={[styles.profileSection, { paddingTop: insets.top + 20 }]}
         >
@@ -173,15 +198,12 @@ export default function SettingsScreen() {
         </ThemedView>
 
         <ThemedView style={styles.signOutSection}>
-          <TouchableOpacity
-            style={[styles.signOutButton, { borderColor: "#ff3b30" }]}
-            onPress={() => console.log("Signed out")}
-          >
-            <IconSymbol name="power" size={20} color="#ff3b30" />
-            <ThemedText style={styles.signOutText}>
-              <Trans>Sign Out</Trans>
-            </ThemedText>
-          </TouchableOpacity>
+          <ThemedButton
+            title={t`Sign Out`}
+            variant="destructive"
+            icon="power"
+            onPress={handleLogout}
+          />
         </ThemedView>
 
         <ThemedView style={styles.versionSection}>
@@ -192,6 +214,14 @@ export default function SettingsScreen() {
           </ThemedText>
         </ThemedView>
       </ScrollView>
+
+      <ThemedAlert
+        visible={alertConfig.visible}
+        title={alertConfig.title}
+        message={alertConfig.message}
+        buttons={alertConfig.buttons}
+        onDismiss={hideAlert}
+      />
     </SafeAreaView>
   );
 }
@@ -236,20 +266,6 @@ const styles = StyleSheet.create({
     marginHorizontal: 16,
     marginVertical: 16,
     borderRadius: 16,
-  },
-  signOutButton: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
-    paddingVertical: 16,
-    borderWidth: 1,
-    borderRadius: 16,
-    gap: 10,
-  },
-  signOutText: {
-    fontSize: 16,
-    fontWeight: "600",
-    color: "#ff3b30",
   },
   versionSection: {
     alignItems: "center",

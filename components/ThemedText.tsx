@@ -31,8 +31,8 @@ export function ThemedText({
   const FONTS = {
     km: {
       regular: "KantumruyPro_400Regular",
-      semiBold: "KantumruyPro_600SemiBold",
-      bold: "KantumruyPro_700Bold",
+      semiBold: "KantumruyPro_500Medium",
+      bold: " KantumruyPro_600SemiBold",
     },
     en: {
       regular: "Roboto_400Regular",
@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
     lineHeight: 24,
   },
   title: {
-    fontSize: 20,
+    fontSize: 26,
     lineHeight: 32,
   },
   subtitle: {

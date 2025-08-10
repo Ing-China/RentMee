@@ -1,3 +1,11 @@
+import { Colors } from "@/constants/Colors";
+import { storage } from "@/lib/storage";
+import {
+  ColorScheme,
+  getEffectiveColorScheme,
+  getThemeColors,
+  ThemeMode,
+} from "@/theme/config";
 import React, {
   createContext,
   useCallback,
@@ -6,14 +14,6 @@ import React, {
   useState,
 } from "react";
 import { useColorScheme } from "react-native";
-import {
-  ThemeMode,
-  ColorScheme,
-  getEffectiveColorScheme,
-  getThemeColors,
-} from "@/theme/config";
-import { storage } from "@/lib/storage";
-import { Colors } from "@/constants/Colors";
 
 type ThemeContextType = {
   theme: ThemeMode;
