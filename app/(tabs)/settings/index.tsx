@@ -21,12 +21,10 @@ import { Trans, t } from "@lingui/macro";
 export default function SettingsScreen() {
   const insets = useSafeAreaInsets();
   const { colors } = useTheme();
-  const { logout } = useAuth();
+  const { logout, user } = useAuth();
   const { alertConfig, showAlert, hideAlert } = useThemedAlert();
   const [notifications, setNotifications] = useState(true);
-
-  const userName = "Monkey D. Luffy";
-  const userEmail = "luffy2004@email.com";
+  const [logoutLoading, setLogoutLoading] = useState(false);
 
   const handleLogout = () => {
     showAlert(t`Sign Out`, t`Are you sure you want to sign out?`, [
@@ -37,9 +35,16 @@ export default function SettingsScreen() {
       {
         text: t`Sign Out`,
         style: "destructive",
-        onPress: () => {
-          logout();
-          router.replace("/(auth)/login");
+        onPress: async () => {
+          setLogoutLoading(true);
+          try {
+            await logout();
+            // Navigation will be handled automatically by the app's auth flow
+          } catch (error) {
+            console.error("Logout failed:", error);
+          } finally {
+            setLogoutLoading(false);
+          }
         },
       },
     ]);
@@ -56,7 +61,7 @@ export default function SettingsScreen() {
         >
           <ThemedView style={styles.profileContent}>
             <Image
-              source="https://i.pinimg.com/736x/92/26/d7/9226d738bb7e00aa1bff0b73b786ae00.jpg"
+              source={user?.image_url || require("@/assets/images/icon.png")}
               style={styles.profileImage}
               contentFit="cover"
             />
@@ -64,19 +69,21 @@ export default function SettingsScreen() {
               type="title"
               style={[
                 styles.profileName,
-                { fontFamily: getFontForText(userName, "semiBold") },
+                {
+                  fontFamily: getFontForText(user?.name || "User", "semiBold"),
+                },
               ]}
             >
-              {userName}
+              {user?.name || "User"}
             </ThemedText>
             <ThemedText
               style={[
                 styles.profileEmail,
                 { color: colors.text + "B3" },
-                { fontFamily: getFontForText(userEmail, "regular") },
+                { fontFamily: getFontForText(user?.email || "", "regular") },
               ]}
             >
-              {userEmail}
+              {user?.email}
             </ThemedText>
           </ThemedView>
         </ThemedView>
@@ -203,6 +210,7 @@ export default function SettingsScreen() {
             variant="destructive"
             icon="power"
             onPress={handleLogout}
+            loading={logoutLoading}
           />
         </ThemedView>
 
@@ -252,6 +260,11 @@ const styles = StyleSheet.create({
   },
   profileEmail: {
     fontSize: 14,
+  },
+  userType: {
+    fontSize: 12,
+    marginTop: 4,
+    fontWeight: "600",
   },
   section: {
     marginHorizontal: 16,

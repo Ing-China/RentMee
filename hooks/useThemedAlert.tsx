@@ -1,3 +1,4 @@
+import { t } from "@lingui/core/macro";
 import { useState } from "react";
 
 interface AlertButton {
@@ -31,7 +32,7 @@ export function useThemedAlert() {
       visible: true,
       title,
       message,
-      buttons: buttons || [{ text: "OK" }],
+      buttons: buttons || [{ text: t`OK` }],
     });
   };
 

@@ -1,4 +1,5 @@
 import { useTheme } from "@/contexts/ThemeContext";
+import { t } from "@lingui/core/macro";
 import React from "react";
 import {
   Dimensions,
@@ -31,7 +32,7 @@ export function ThemedAlert({
   visible,
   title,
   message,
-  buttons = [{ text: "OK" }],
+  buttons = [{ text: t`OK` }],
   onDismiss,
 }: ThemedAlertProps) {
   const { colors } = useTheme();

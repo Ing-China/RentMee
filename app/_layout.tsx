@@ -8,12 +8,30 @@ import { StatusBar } from "expo-status-bar";
 import "react-native-reanimated";
 import "../global.css";
 
-import { AuthProvider } from "@/contexts/AuthContext";
+import { AuthProvider, useAuth } from "@/contexts/AuthContext";
 import { I18nProviderWrapper } from "@/contexts/I18nContext";
 import { ThemeProviderWrapper, useTheme } from "@/contexts/ThemeContext";
+import { router, useSegments } from "expo-router";
+import { useEffect } from "react";
 
 function AppContent() {
   const { colorScheme, colors } = useTheme();
+  const { isAuthenticated, loading } = useAuth();
+  const segments = useSegments();
+
+  useEffect(() => {
+    if (loading) return; // Don't redirect while loading
+
+    const inAuthGroup = segments[0] === "(auth)";
+
+    if (isAuthenticated && inAuthGroup) {
+      // Redirect to dashboard if authenticated and in auth group
+      router.replace("/(tabs)/dashboard");
+    } else if (!isAuthenticated && !inAuthGroup) {
+      // Redirect to login if not authenticated and not in auth group
+      router.replace("/(auth)/login");
+    }
+  }, [isAuthenticated, loading, segments]);
 
   return (
     <NavigationThemeProvider

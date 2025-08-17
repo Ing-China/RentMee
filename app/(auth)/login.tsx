@@ -1,5 +1,4 @@
 import { t } from "@lingui/core/macro";
-import { router } from "expo-router";
 import React, { useState } from "react";
 import {
   KeyboardAvoidingView,
@@ -63,19 +62,34 @@ export default function LoginScreen() {
     if (!validateForm()) return;
 
     setLoading(true);
+    setErrors({ email: "", password: "" }); // Clear previous errors
 
     try {
-      // Simulate loading for 1 second
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      const result = await login({
+        email: email.trim(),
+        password: password.trim(),
+        device_name: "RentMee Mobile App",
+      });
 
-      // Simply set authenticated to true
-      login();
-      router.replace("/(tabs)/dashboard");
+      if (result.success) {
+        // Don't manually navigate - let the auth guard handle it
+        // The _layout.tsx will automatically redirect when isAuthenticated becomes true
+      } else {
+        if (result.error === "Invalid credentials") {
+          showAlert(
+            t`Login Failed`,
+            t`Please check your credentials and try again.`
+          );
+        } else {
+          showAlert(
+            t`Error`,
+            t`An unexpected error occurred. Please try again.`
+          );
+        }
+      }
     } catch (error) {
-      showAlert(
-        t`Error`,
-        t`Login failed. Please check your credentials and try again.`
-      );
+      console.error("Login error:", error);
+      showAlert(t`Error`, t`An unexpected error occurred. Please try again.`);
     } finally {
       setLoading(false);
     }

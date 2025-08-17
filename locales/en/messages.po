@@ -13,26 +13,55 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#: app/(tabs)/settings/index.tsx:192
+msgid "About"
+msgstr "About"
+
+#: app/(tabs)/settings/index.tsx:85
+msgid "Account"
+msgstr "Account"
+
+#: app/(auth)/login.tsx:86
+#: app/(auth)/login.tsx:92
+msgid "An unexpected error occurred. Please try again."
+msgstr "An unexpected error occurred. Please try again."
+
+#: app/(tabs)/settings/index.tsx:137
+msgid "App display language"
+msgstr "App display language"
+
+#: app/(tabs)/settings/index.tsx:193
+msgid "App version and legal info"
+msgstr "App version and legal info"
+
 #: app/(tabs)/settings/_layout.tsx:27
-#: app/(tabs)/settings/index.tsx:131
+#: app/(tabs)/settings/index.tsx:129
 msgid "Appearance"
 msgstr "Appearance"
 
-#: app/(tabs)/settings/index.tsx:34
+#: app/(tabs)/settings/index.tsx:29
 msgid "Are you sure you want to sign out?"
 msgstr "Are you sure you want to sign out?"
 
-#: app/(tabs)/settings/index.tsx:37
+#: app/(tabs)/settings/index.tsx:97
+msgid "Billing & Subscriptions"
+msgstr "Billing & Subscriptions"
+
+#: app/(tabs)/settings/index.tsx:31
 msgid "Cancel"
 msgstr "Cancel"
 
-#: app/(auth)/login.tsx:89
+#: app/(auth)/login.tsx:108
 msgid "Cannot open Telegram. Please contact @Ing_China manually."
 msgstr "Cannot open Telegram. Please contact @Ing_China manually."
 
 #: app/(auth)/login.tsx:189
 #~ msgid "Coming Soon"
 #~ msgstr "Coming Soon"
+
+#: app/(tabs)/settings/index.tsx:151
+msgid "Control data sharing and privacy"
+msgstr "Control data sharing and privacy"
 
 #: app/(tabs)/settings/appearance.tsx:28
 msgid "Dark"
@@ -42,23 +71,39 @@ msgstr "Dark"
 msgid "Dark appearance"
 msgstr "Dark appearance"
 
+#: app/(tabs)/settings/index.tsx:130
+msgid "Dark mode, theme settings"
+msgstr "Dark mode, theme settings"
+
 #: app/(tabs)/_layout.tsx:43
 msgid "Dashboard"
 msgstr "Dashboard"
+
+#: app/(tabs)/settings/index.tsx:145
+msgid "Data & Privacy"
+msgstr "Data & Privacy"
+
+#: app/(tabs)/settings/index.tsx:164
+msgid "Delete Account"
+msgstr "Delete Account"
 
 #: app/(auth)/login.tsx:185
 #~ msgid "Don't have an account?"
 #~ msgstr "Don't have an account?"
 
-#: app/(auth)/login.tsx:187
+#: app/(auth)/login.tsx:173
 msgid "Don't have an account? Register"
 msgstr "Don't have an account? Register"
 
-#: app/(auth)/login.tsx:156
+#: app/(tabs)/settings/index.tsx:158
+msgid "Download your rental data"
+msgstr "Download your rental data"
+
+#: app/(auth)/login.tsx:142
 msgid "Email"
 msgstr "Email"
 
-#: app/(auth)/login.tsx:37
+#: app/(auth)/login.tsx:42
 msgid "Email is required"
 msgstr "Email is required"
 
@@ -70,18 +115,23 @@ msgstr "English"
 msgid "English (US)"
 msgstr "English (US)"
 
-#: app/(auth)/login.tsx:160
+#: app/(auth)/login.tsx:146
 msgid "Enter your email"
 msgstr "Enter your email"
 
-#: app/(auth)/login.tsx:172
+#: app/(auth)/login.tsx:158
 msgid "Enter your password"
 msgstr "Enter your password"
 
-#: app/(auth)/login.tsx:71
-#: app/(auth)/login.tsx:94
+#: app/(auth)/login.tsx:85
+#: app/(auth)/login.tsx:92
+#: app/(auth)/login.tsx:112
 msgid "Error"
 msgstr "Error"
+
+#: app/(tabs)/settings/index.tsx:157
+msgid "Export Data"
+msgstr "Export Data"
 
 #: app/(tabs)/_layout.tsx:70
 msgid "Finances"
@@ -95,6 +145,18 @@ msgstr "Finances"
 #~ msgid "Forgot Password?"
 #~ msgstr "Forgot Password?"
 
+#: app/(tabs)/settings/index.tsx:179
+msgid "Get help and contact support"
+msgstr "Get help and contact support"
+
+#: app/(tabs)/settings/index.tsx:178
+msgid "Help & Support"
+msgstr "Help & Support"
+
+#: app/(auth)/login.tsx:79
+#~ msgid "Invalid credentials"
+#~ msgstr "Invalid credentials"
+
 #: app/(tabs)/settings/language.tsx:25
 msgid "Khmer"
 msgstr "Khmer"
@@ -104,7 +166,7 @@ msgid "Khmer (Cambodia)"
 msgstr "Khmer (Cambodia)"
 
 #: app/(tabs)/settings/_layout.tsx:40
-#: app/(tabs)/settings/index.tsx:138
+#: app/(tabs)/settings/index.tsx:136
 #: app/(tabs)/settings/language.tsx:39
 msgid "Language"
 msgstr "Language"
@@ -117,27 +179,43 @@ msgstr "Light"
 msgid "Light appearance"
 msgstr "Light appearance"
 
+#: app/(auth)/login.tsx:80
+msgid "Login Failed"
+msgstr "Login Failed"
+
 #: app/(auth)/login.tsx:72
-msgid "Login failed. Please check your credentials and try again."
-msgstr "Login failed. Please check your credentials and try again."
+#~ msgid "Login failed. Please check your credentials and try again."
+#~ msgstr "Login failed. Please check your credentials and try again."
 
 #: app/login.tsx:70
 #~ msgid "Login successful! Redirecting to dashboard..."
 #~ msgstr "Login successful! Redirecting to dashboard..."
 
-#: app/login.tsx:73
-#~ msgid "OK"
-#~ msgstr "OK"
+#: app/(tabs)/settings/index.tsx:98
+msgid "Manage payment methods and plans"
+msgstr "Manage payment methods and plans"
 
-#: app/(auth)/login.tsx:168
+#: app/(tabs)/settings/index.tsx:91
+msgid "Manage your personal information"
+msgstr "Manage your personal information"
+
+#: app/(tabs)/settings/index.tsx:111
+msgid "Notifications"
+msgstr "Notifications"
+
+#: components/ui/ThemedAlert.tsx:35
+msgid "OK"
+msgstr "OK"
+
+#: app/(auth)/login.tsx:154
 msgid "Password"
 msgstr "Password"
 
-#: app/(auth)/login.tsx:46
+#: app/(auth)/login.tsx:51
 msgid "Password is required"
 msgstr "Password is required"
 
-#: app/(auth)/login.tsx:49
+#: app/(auth)/login.tsx:54
 msgid "Password must be at least 6 characters"
 msgstr "Password must be at least 6 characters"
 
@@ -145,13 +223,45 @@ msgstr "Password must be at least 6 characters"
 #~ msgid "Password reset functionality will be implemented soon."
 #~ msgstr "Password reset functionality will be implemented soon."
 
-#: app/(auth)/login.tsx:40
+#: app/(tabs)/settings/index.tsx:165
+msgid "Permanently delete your account"
+msgstr "Permanently delete your account"
+
+#: app/(auth)/login.tsx:81
+msgid "Please check your credentials and try again."
+msgstr "Please check your credentials and try again."
+
+#: app/(auth)/login.tsx:45
 msgid "Please enter a valid email"
 msgstr "Please enter a valid email"
+
+#: app/(tabs)/settings/index.tsx:106
+msgid "Preferences"
+msgstr "Preferences"
+
+#: app/(tabs)/settings/index.tsx:150
+msgid "Privacy Settings"
+msgstr "Privacy Settings"
+
+#: app/(tabs)/settings/index.tsx:90
+msgid "Profile"
+msgstr "Profile"
 
 #: app/(tabs)/_layout.tsx:52
 msgid "Properties"
 msgstr "Rooms"
+
+#: app/(tabs)/settings/index.tsx:112
+msgid "Push notifications and alerts"
+msgstr "Push notifications and alerts"
+
+#: app/(tabs)/settings/index.tsx:185
+msgid "Rate App"
+msgstr "Rate App"
+
+#: app/(tabs)/settings/index.tsx:186
+msgid "Rate us on the App Store"
+msgstr "Rate us on the App Store"
 
 #: app/(auth)/login.tsx:189
 #~ msgid "Registration will be available soon."
@@ -161,17 +271,17 @@ msgstr "Rooms"
 msgid "Settings"
 msgstr "Settings"
 
-#: app/(auth)/login.tsx:180
+#: app/(auth)/login.tsx:166
 msgid "Sign In"
 msgstr "Sign In"
 
-#: app/(auth)/login.tsx:139
+#: app/(auth)/login.tsx:137
 msgid "Sign in to your account to continue"
 msgstr "Sign in to your account to continue"
 
-#: app/(tabs)/settings/index.tsx:33
-#: app/(tabs)/settings/index.tsx:41
-#: app/(tabs)/settings/index.tsx:208
+#: app/(tabs)/settings/index.tsx:29
+#: app/(tabs)/settings/index.tsx:35
+#: app/(tabs)/settings/index.tsx:201
 msgid "Sign Out"
 msgstr "Sign Out"
 
@@ -182,6 +292,10 @@ msgstr "Sign Out"
 #: app/login.tsx:69
 #~ msgid "Success"
 #~ msgstr "Success"
+
+#: app/(tabs)/settings/index.tsx:173
+msgid "Support"
+msgstr "Support"
 
 #: app/(tabs)/settings/appearance.tsx:16
 msgid "System"
@@ -195,11 +309,11 @@ msgstr "Tenants"
 msgid "Theme"
 msgstr "Theme"
 
-#: app/(auth)/login.tsx:88
+#: app/(auth)/login.tsx:107
 msgid "Unable to Open"
 msgstr "Unable to Open"
 
-#: app/(auth)/login.tsx:95
+#: app/(auth)/login.tsx:112
 msgid "Unable to open Telegram. Please try again."
 msgstr "Unable to open Telegram. Please try again."
 
@@ -207,6 +321,6 @@ msgstr "Unable to open Telegram. Please try again."
 msgid "Use device setting"
 msgstr "Use device setting"
 
-#: app/(auth)/login.tsx:129
+#: app/(auth)/login.tsx:134
 msgid "Welcome Back"
 msgstr "Welcome Back"
