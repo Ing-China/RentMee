@@ -1,7 +1,7 @@
-import { ThemedView } from "@/components/ThemedView";
 import { apiClient } from "@/lib/api";
 import { storage } from "@/lib/storage";
 import { LoginCredentials, User } from "@/types/api";
+import * as SplashScreen from "expo-splash-screen";
 import React, {
   createContext,
   PropsWithChildren,
@@ -10,7 +10,6 @@ import React, {
   useEffect,
   useState,
 } from "react";
-import { ActivityIndicator } from "react-native";
 
 interface AuthContextType {
   isAuthenticated: boolean;
@@ -24,6 +23,9 @@ interface AuthContextType {
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
+
+// Prevent splash screen from auto-hiding
+SplashScreen.preventAutoHideAsync();
 
 export function AuthProvider({ children }: PropsWithChildren) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -51,6 +53,8 @@ export function AuthProvider({ children }: PropsWithChildren) {
       await storage.clearAll();
     } finally {
       setLoading(false);
+      // Hide splash screen after auth initialization
+      await SplashScreen.hideAsync();
     }
   }, []);
 
@@ -127,14 +131,9 @@ export function AuthProvider({ children }: PropsWithChildren) {
     await refreshUserProfile();
   }, []);
 
+  // While loading, return null and let splash screen show
   if (loading) {
-    return (
-      <ThemedView
-        style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
-      >
-        <ActivityIndicator size="large" />
-      </ThemedView>
-    );
+    return null;
   }
 
   const value: AuthContextType = {
