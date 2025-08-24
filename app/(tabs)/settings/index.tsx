@@ -97,7 +97,7 @@ export default function SettingsScreen() {
             icon="person.circle.fill"
             title={<Trans>Profile</Trans>}
             subtitle={<Trans>Manage your personal information</Trans>}
-            onPress={() => console.log("Profile pressed")}
+            onPress={() => router.push("/settings-stack/profile")}
           />
 
           <SettingItem
@@ -136,14 +136,14 @@ export default function SettingsScreen() {
             icon="moon.fill"
             title={<Trans>Appearance</Trans>}
             subtitle={<Trans>Dark mode, theme settings</Trans>}
-            onPress={() => router.push("/settings/appearance")}
+            onPress={() => router.push("/settings-stack/appearance")}
           />
 
           <SettingItem
             icon="globe"
             title={<Trans>Language</Trans>}
             subtitle={<Trans>App display language</Trans>}
-            onPress={() => router.push("/settings/language")}
+            onPress={() => router.push("/settings-stack/language")}
             isLast
           />
         </ThemedView>

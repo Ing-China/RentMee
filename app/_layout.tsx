@@ -40,6 +40,57 @@ function AppContent() {
       <Stack>
         <Stack.Screen name="(auth)" options={{ headerShown: false }} />
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        {/* True Nested Stack - Completely separate from tabs */}
+        <Stack.Screen
+          name="settings-stack/appearance"
+          options={{
+            title: "Appearance",
+            headerShown: true,
+            headerTintColor: colorScheme === "dark" ? "#fff" : "#000",
+            headerBackButtonDisplayMode: "minimal",
+            presentation: "card",
+          }}
+        />
+        <Stack.Screen
+          name="settings-stack/language"
+          options={{
+            title: "Language",
+            headerShown: true,
+            headerTintColor: colorScheme === "dark" ? "#fff" : "#000",
+            headerBackButtonDisplayMode: "minimal",
+            presentation: "card",
+          }}
+        />
+        <Stack.Screen
+          name="settings-stack/profile"
+          options={{
+            title: "Profile",
+            headerShown: true,
+            headerTintColor: colorScheme === "dark" ? "#fff" : "#000",
+            headerBackButtonDisplayMode: "minimal",
+            presentation: "card",
+          }}
+        />
+        <Stack.Screen
+          name="settings-stack/edit-profile"
+          options={{
+            title: "Edit Profile",
+            headerShown: true,
+            headerTintColor: colorScheme === "dark" ? "#fff" : "#000",
+            headerBackButtonDisplayMode: "minimal",
+            presentation: "card",
+          }}
+        />
+        <Stack.Screen
+          name="settings-stack/change-password"
+          options={{
+            title: "Change Password",
+            headerShown: true,
+            headerTintColor: colorScheme === "dark" ? "#fff" : "#000",
+            headerBackButtonDisplayMode: "minimal",
+            presentation: "card",
+          }}
+        />
         <Stack.Screen name="+not-found" />
       </Stack>
       <StatusBar
